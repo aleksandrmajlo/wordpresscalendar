@@ -26,7 +26,11 @@
             return {
             }
         },
+        mounted(){
+            this.$store.dispatch('getEventsactions');
+        },
         methods: {}
+
     }
 </script>
 <style lang="scss">

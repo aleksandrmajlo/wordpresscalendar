@@ -2,7 +2,8 @@
     <div>
         <full-calendar :events="$store.state.events"
                        :config="config"
-                       @day-click="eventSelected"
+                       @day-click="dayClick"
+                       @event-selected="eventSelected"
                        ref="calendar"/>
     </div>
 </template>
@@ -28,10 +29,11 @@
         },
         components: {},
         methods: {
-            eventSelected(date) {
-                this.$store.dispatch('updateAjax', {
-                    date: date._d
-                });
+            eventSelected(event, jsEvent, view){
+                this.$store.commit('setDayform', event.start._d);
+            },
+            dayClick(date) {
+                this.$store.commit('setDayform', date._d);
             },
         },
     }

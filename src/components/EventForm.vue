@@ -40,7 +40,7 @@
                 this.$store.commit('updateLink', e.target.value)
             },
             handleSubmit() {
-                this.$store.dispatch('updateAjaxlink');
+                this.$store.dispatch('saveLink');
             },
 
         },
